@@ -1,0 +1,30 @@
+{
+  "items": [
+    {
+      "gap_id": "gap-sap",
+      "requirement": "Direct SAP S/4HANA implementation experience",
+      "original_status": "TRANSFERABLE",
+      "verified_status": "NOT_VERIFIED",
+      "verification_result": "No additional direct implementation evidence has been supplied.",
+      "evidence_summary": "Candidate evidence supports SAP-related ERP exposure only and explicitly does not establish personal SAP S/4HANA implementation.",
+      "supported_keywords": [
+        "ERP modernization",
+        "SAP-related business processes"
+      ],
+      "caution": "Do not claim direct SAP S/4HANA implementation."
+    },
+    {
+      "gap_id": "gap-ai",
+      "requirement": "Experience applying AI to industrial operations",
+      "original_status": "MISSING",
+      "verified_status": "NOT_VERIFIED",
+      "verification_result": "No additional industrial AI experience has been supplied.",
+      "evidence_summary": "No candidate evidence establishes industrial AI implementation.",
+      "supported_keywords": [],
+      "caution": "Do not claim industrial AI implementation."
+    }
+  ],
+  "verified_experience_count": 0,
+  "remaining_gap_count": 2,
+  "summary": "No new direct experience was verified for the SAP S/4HANA or industrial AI gaps."
+}

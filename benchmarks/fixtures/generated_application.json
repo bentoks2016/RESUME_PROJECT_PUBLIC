@@ -1,0 +1,129 @@
+{
+  "resume": {
+    "name": "Alex Morgan",
+    "contact": {
+      "phone": "",
+      "email": "",
+      "linkedin": "",
+      "location": ""
+    },
+    "profile": [
+      "Operations transformation professional with 11 years of manufacturing and operational improvement experience.",
+      "Led cross-functional operational improvement across four manufacturing sites.",
+      "Introduced automated production reporting, reducing weekly manual reporting effort by 18 hours."
+    ],
+    "career_positions": [
+      {
+        "job_title": "Transformation Manager",
+        "employer": "Fictional Meridian Components",
+        "dates": "2019-2026",
+        "location": ""
+      },
+      {
+        "job_title": "Operations Improvement Lead",
+        "employer": "Fictional Apex Industrial",
+        "dates": "2015-2019",
+        "location": ""
+      }
+    ],
+    "skill_groups": [
+      {
+        "name": "Transformation & Delivery",
+        "accomplishments": [
+          "Led a cross-functional operational improvement program across four manufacturing sites.",
+          "Managed program risks, governance reviews, and executive status reporting."
+        ]
+      },
+      {
+        "name": "Automation & Performance",
+        "accomplishments": [
+          "Introduced automated production reporting that reduced weekly manual reporting effort by 18 hours.",
+          "Used Power BI dashboards to identify production bottlenecks."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "program_name": "Bachelor of Business Administration",
+        "school_name": "Fictional University",
+        "dates": "",
+        "location": ""
+      }
+    ],
+    "additional_training": [
+      {
+        "course_name": "Lean Six Sigma Green Belt",
+        "provider": "Fictional Training Provider",
+        "date": "",
+        "location": ""
+      },
+      {
+        "course_name": "Project Management Fundamentals",
+        "provider": "Fictional Training Provider",
+        "date": "",
+        "location": ""
+      }
+    ]
+  },
+  "cover_letter": {
+    "candidate_name": "Alex Morgan",
+    "candidate_contact": {
+      "phone": "",
+      "email": "",
+      "linkedin": "",
+      "location": ""
+    },
+    "date_line": "",
+    "recipient": {
+      "name": "",
+      "position": "",
+      "employer": "Northstar Manufacturing",
+      "address": "",
+      "phone": "",
+      "email": ""
+    },
+    "subject_line": "Senior Operations Transformation Manager",
+    "salutation": "Dear Hiring Manager",
+    "paragraph_1": "I am interested in the Senior Operations Transformation Manager opportunity.",
+    "paragraph_2": "My multi-site transformation experience aligns with the role's operational improvement and cross-functional leadership requirements.",
+    "paragraph_3": "I would bring verified experience in automation, risk governance, performance reporting, and organizational change.",
+    "paragraph_4": "I would welcome the opportunity to discuss how this experience could support Northstar Manufacturing.",
+    "closing": "Sincerely"
+  },
+  "final_score_breakdown": {
+    "required_skills": 88,
+    "experience_alignment": 82,
+    "leadership_seniority": 85,
+    "education": 75,
+    "preferred_qualifications": 55,
+    "industry_alignment": 90
+  },
+  "final_match_score": 78,
+  "final_ats_score": 76,
+  "keywords_added": [
+    "operational transformation",
+    "cross-functional leadership",
+    "risk governance"
+  ],
+  "remaining_gaps": [
+    "Direct SAP S/4HANA implementation",
+    "Industrial AI implementation"
+  ],
+  "ats_optimization": {
+    "headline_keywords": [],
+    "profile_keywords": [],
+    "skill_group_keywords": [],
+    "accomplishment_keywords": [],
+    "excluded_unsupported_keywords": [
+      "SAP S/4HANA implementation",
+      "industrial AI implementation"
+    ],
+    "keyword_placements": [],
+    "authorized_keywords": [],
+    "keywords_found": [],
+    "keywords_missing": [],
+    "deterministic_ats_score": 0,
+    "structure_passed": true,
+    "structure_issues": []
+  }
+}

@@ -1,0 +1,165 @@
+{
+  "company": "Northstar Manufacturing",
+  "job_title": "Senior Operations Transformation Manager",
+  "current_match_score": 72,
+  "estimated_tailored_score": 78,
+  "current_ats_score": 70,
+  "estimated_tailored_ats_score": 78,
+  "executive_summary": "The candidate demonstrates substantial direct operations-transformation, multi-site manufacturing, cross-functional leadership, automation/reporting, risk/governance, and change-adoption experience. SAP-related ERP exposure is adjacent but does not establish direct SAP S/4HANA implementation. Industrial AI implementation is not demonstrated.",
+  "requirements": [
+    {
+      "requirement": "Lead complex operational transformation programs",
+      "importance": "CRITICAL",
+      "status": "SUPPORTED",
+      "evidence": "Led a cross-functional operational improvement program across four manufacturing sites.",
+      "keywords": [
+        "operational transformation",
+        "program leadership"
+      ],
+      "impact": "",
+      "recommendation": ""
+    },
+    {
+      "requirement": "Manage cross-functional stakeholders",
+      "importance": "CRITICAL",
+      "status": "SUPPORTED",
+      "evidence": "Coordinated operations, engineering, finance, and technology stakeholders.",
+      "keywords": [
+        "cross-functional stakeholders"
+      ],
+      "impact": "",
+      "recommendation": ""
+    },
+    {
+      "requirement": "Lead automation initiatives",
+      "importance": "HIGH",
+      "status": "SUPPORTED",
+      "evidence": "Introduced automated production reporting that reduced weekly manual reporting effort by 18 hours.",
+      "keywords": [
+        "automation"
+      ],
+      "impact": "",
+      "recommendation": ""
+    },
+    {
+      "requirement": "Manage project risk and governance",
+      "importance": "HIGH",
+      "status": "SUPPORTED",
+      "evidence": "Managed program risks, governance reviews, and executive status reporting.",
+      "keywords": [
+        "risk",
+        "governance"
+      ],
+      "impact": "",
+      "recommendation": ""
+    },
+    {
+      "requirement": "Direct SAP S/4HANA implementation experience",
+      "importance": "PREFERRED",
+      "status": "TRANSFERABLE",
+      "evidence": "Participated in ERP modernization involving SAP-related business processes, but the resume explicitly states the candidate did not personally implement SAP S/4HANA.",
+      "keywords": [
+        "SAP",
+        "SAP S/4HANA"
+      ],
+      "impact": "Related ERP exposure exists, but direct implementation is not established.",
+      "recommendation": ""
+    },
+    {
+      "requirement": "Experience applying AI to industrial operations",
+      "importance": "PREFERRED",
+      "status": "MISSING",
+      "evidence": "No industrial AI implementation evidence is present in the resume.",
+      "keywords": [
+        "AI",
+        "industrial AI"
+      ],
+      "impact": "",
+      "recommendation": ""
+    },
+    {
+      "requirement": "Experience in multi-site manufacturing environments",
+      "importance": "PREFERRED",
+      "status": "SUPPORTED",
+      "evidence": "Led improvement activity across four manufacturing sites.",
+      "keywords": [
+        "multi-site manufacturing"
+      ],
+      "impact": "",
+      "recommendation": ""
+    }
+  ],
+  "keyword_analysis": [
+    {
+      "keyword": "operational transformation",
+      "importance": "CRITICAL",
+      "status": "SUPPORTED",
+      "evidence": "Operational improvement leadership across four manufacturing sites.",
+      "currently_in_resume": true,
+      "use_in_tailored_resume": true
+    },
+    {
+      "keyword": "SAP S/4HANA",
+      "importance": "PREFERRED",
+      "status": "TRANSFERABLE",
+      "evidence": "SAP-related ERP exposure only; direct S/4HANA implementation not established.",
+      "currently_in_resume": true,
+      "use_in_tailored_resume": false
+    },
+    {
+      "keyword": "industrial AI",
+      "importance": "PREFERRED",
+      "status": "MISSING",
+      "evidence": "No supporting candidate evidence.",
+      "currently_in_resume": false,
+      "use_in_tailored_resume": false
+    }
+  ],
+  "strengths": [
+    "Multi-site operational transformation leadership",
+    "Cross-functional stakeholder coordination",
+    "Automation and production reporting",
+    "Program risk and governance",
+    "Change adoption and team workshops"
+  ],
+  "transferable_strengths": [
+    "SAP-related ERP modernization exposure is relevant adjacent experience but is not direct S/4HANA implementation."
+  ],
+  "gaps": [
+    "Direct SAP S/4HANA implementation is not established.",
+    "Industrial AI implementation is not demonstrated."
+  ],
+  "recommendations": [
+    "Emphasize verified multi-site transformation, automation, governance, and change experience.",
+    "Do not claim direct SAP S/4HANA or industrial AI implementation without additional verified evidence."
+  ],
+  "gap_questions": [
+    {
+      "id": "gap-sap",
+      "requirement": "Direct SAP S/4HANA implementation experience",
+      "reason": "The resume shows related SAP/ERP exposure but explicitly does not establish direct implementation.",
+      "suggested_examples": [
+        "Direct implementation responsibilities",
+        "Configuration or deployment responsibilities"
+      ]
+    },
+    {
+      "id": "gap-ai",
+      "requirement": "Experience applying AI to industrial operations",
+      "reason": "No industrial AI implementation experience is demonstrated.",
+      "suggested_examples": [
+        "AI-enabled operations projects",
+        "Industrial AI implementation"
+      ]
+    }
+  ],
+  "score_breakdown": {
+    "required_skills": 88,
+    "experience_alignment": 82,
+    "ats_keyword_coverage": 70,
+    "leadership_seniority": 85,
+    "education": 75,
+    "preferred_qualifications": 55,
+    "industry_alignment": 90
+  }
+}

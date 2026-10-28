@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
+
+    <title>Resume Project</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/styles.css"
+    >
+
+</head>
+
+<body>
+
+<main class="container">
+
+<div id="appNavigation" class="app-navigation hidden">
+
+    <button
+        id="globalBackButton"
+        type="button"
+        class="back-button"
+        data-action="go-back"
+    >
+        ← Back
+    </button>
+
+</div>
+
+<header>
+
+    <div class="brand">
+        RESUME PROJECT
+    </div>
+
+    <h1>
+        Tailor your resume to the job.
+    </h1>
+
+    <p>
+        Analyze job fit, improve ATS alignment,
+        verify experience gaps, and generate a
+        targeted resume and cover letter.
+    </p>
+
+</header>
+
+
+<!-- STEP 1 -->
+
+<section
+    id="step1"
+    class="card"
+>
+
+    <div class="step-label">
+        STEP 1 OF 2
+    </div>
+
+    <h2>Add the Job Posting</h2>
+
+    <textarea
+        id="jobText"
+        placeholder="Paste the complete job posting here..."
+    ></textarea>
+
+    <div class="or">
+        <span>OR</span>
+    </div>
+
+    <label class="upload-box">
+
+        <strong>
+            Upload Job Posting
+        </strong>
+
+        <span>
+            PDF, DOCX or TXT
+        </span>
+
+        <input
+            id="jobFile"
+            type="file"
+            accept=".pdf,.docx,.txt"
+        >
+
+    </label>
+
+    <div class="right">
+
+        <button data-action="show-step-2">
+            Continue →
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- STEP 2 -->
+
+<section
+    id="step2"
+    class="card hidden"
+>
+
+    <div class="step-label">
+        STEP 2 OF 2
+    </div>
+
+    <h2>Add Your Resume</h2>
+
+    <textarea
+        id="resumeText"
+        placeholder="Paste your resume here..."
+    ></textarea>
+
+    <div class="or">
+        <span>OR</span>
+    </div>
+
+    <label class="upload-box">
+
+        <strong>
+            Upload Resume
+        </strong>
+
+        <span>
+            PDF, DOCX or TXT
+        </span>
+
+        <input
+            id="resumeFile"
+            type="file"
+            accept=".pdf,.docx,.txt"
+        >
+
+    </label>
+
+    <div class="button-row">
+
+        <button
+            class="secondary"
+            data-action="show-step-1"
+        >
+            ← Back
+        </button>
+
+        <button data-action="analyze-application">
+            Analyze Resume
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- LOADING -->
+
+<section
+    id="loading"
+    class="card loading hidden"
+>
+
+    <div class="spinner"></div>
+
+    <h2 id="loadingTitle">
+        Analyzing your resume...
+    </h2>
+
+    <p id="loadingText">
+        Comparing your experience with the job
+        and analyzing ATS terminology.
+    </p>
+
+</section>
+
+
+<!-- ANALYSIS -->
+
+<section
+    id="analysisScreen"
+    class="hidden"
+>
+
+<div class="card">
+
+    <div class="step-label">
+        MATCH & ATS ANALYSIS
+    </div>
+
+    <h2 id="roleTitle">
+        Application Analysis
+    </h2>
+
+
+    <div class="score-grid">
+
+        <div class="score-box">
+
+            <span id="currentMatch">
+                --
+            </span>
+
+            <small>
+                Qualification Match
+            </small>
+
+        </div>
+
+
+        <div class="score-box highlight">
+
+            <span id="potentialMatch">
+                --
+            </span>
+
+            <small>
+                Evidence-Based Match Potential
+            </small>
+
+        </div>
+
+
+        <div class="score-box">
+
+            <span id="currentATS">
+                --
+            </span>
+
+            <small>
+                Current ATS Coverage
+            </small>
+
+        </div>
+
+
+        <div class="score-box highlight">
+
+            <span id="potentialATS">
+                --
+            </span>
+
+            <small>
+                Estimated ATS Coverage
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <div class="score-explanation">
+
+        <strong>
+            Why this score?
+        </strong>
+
+        Your match is based on the requirements and
+        candidate evidence shown below. Missing required
+        qualifications have greater impact than missing
+        preferred qualifications.
+
+    </div>
+
+
+    <p
+        id="analysisSummary"
+        class="analysis-summary"
+    ></p>
+
+
+    <!-- REQUIREMENT EVIDENCE MATRIX -->
+
+    <div class="requirement-section">
+
+        <div class="requirement-header">
+
+            <div>
+
+                <h3>
+                    Requirement-by-Requirement Analysis
+                </h3>
+
+                <p class="help-text">
+                    See exactly how your experience maps
+                    to the employer's requirements.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="requirementSummary"
+            class="requirement-summary"
+        >
+
+            <div class="requirement-stat">
+
+                <strong id="totalRequirements">
+                    0
+                </strong>
+
+                <span>
+                    Requirements
+                </span>
+
+            </div>
+
+
+            <div class="requirement-stat supported-stat">
+
+                <strong id="supportedCount">
+                    0
+                </strong>
+
+                <span>
+                    Supported
+                </span>
+
+            </div>
+
+
+            <div class="requirement-stat transferable-stat">
+
+                <strong id="transferableCount">
+                    0
+                </strong>
+
+                <span>
+                    Transferable
+                </span>
+
+            </div>
+
+
+            <div class="requirement-stat missing-stat">
+
+                <strong id="missingCount">
+                    0
+                </strong>
+
+                <span>
+                    Missing
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="requirement-filters">
+
+            <button
+                type="button"
+                class="requirement-filter active"
+                data-filter="ALL"
+                data-action="filter-requirements"
+            >
+                All
+            </button>
+
+
+            <button
+                type="button"
+                class="requirement-filter"
+                data-filter="REQUIRED"
+                data-action="filter-requirements"
+            >
+                Required
+            </button>
+
+
+            <button
+                type="button"
+                class="requirement-filter"
+                data-filter="PREFERRED"
+                data-action="filter-requirements"
+            >
+                Preferred
+            </button>
+
+
+            <button
+                type="button"
+                class="requirement-filter"
+                data-filter="MISSING"
+                data-action="filter-requirements"
+            >
+                Missing
+            </button>
+
+        </div>
+
+
+        <div
+            id="requirementMatrix"
+            class="requirement-matrix"
+        ></div>
+
+    </div>
+
+
+    <div class="analysis-grid">
+
+        <div>
+
+            <h3>Strong Matches</h3>
+
+            <ul id="strengths"></ul>
+
+        </div>
+
+
+        <div>
+
+            <h3>Important Gaps</h3>
+
+            <ul id="gaps"></ul>
+
+        </div>
+
+    </div>
+
+
+    <h3>ATS Keywords</h3>
+
+    <div
+        id="keywords"
+        class="keywords"
+    ></div>
+
+</div>
+
+
+<!-- GAP VERIFICATION -->
+
+<div
+    id="gapCard"
+    class="card"
+>
+
+    <div class="step-label">
+        EXPERIENCE VERIFICATION
+    </div>
+
+    <h2>
+        Can you close any of these gaps?
+    </h2>
+
+    <p class="help-text">
+
+        These requirements were not demonstrated
+        in your current resume.
+
+        If you genuinely have the experience,
+        add it here before we generate the
+        final resume.
+
+    </p>
+
+
+    <div id="gapQuestions"></div>
+
+
+    <button data-action="verify-gap-answers">
+
+        Verify Experience →
+
+    </button>
+
+</div>
+
+</section>
+
+
+<!-- GAP VERIFICATION RESULTS -->
+
+<section
+    id="verificationScreen"
+    class="hidden"
+>
+
+    <div class="card">
+
+        <div class="step-label">
+            EXPERIENCE VERIFICATION
+        </div>
+
+        <h2>
+            Your additional experience was reviewed
+        </h2>
+
+        <p
+            id="verificationSummary"
+            class="analysis-summary"
+        ></p>
+
+
+        <div class="verification-stats">
+
+            <div class="verification-stat verified">
+
+                <strong id="verifiedExperienceCount">
+                    0
+                </strong>
+
+                <span>
+                    Verified
+                </span>
+
+            </div>
+
+
+            <div class="verification-stat remaining">
+
+                <strong id="remainingGapCount">
+                    0
+                </strong>
+
+                <span>
+                    Remaining Gaps
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div id="verificationItems"></div>
+
+
+        <div class="button-row">
+
+            <button
+                type="button"
+                class="secondary"
+                data-action="show-analysis"
+            >
+                ← Edit Answers
+            </button>
+
+
+            <button
+                type="button"
+                data-action="start-achievement-optimizer"
+            >
+                Continue to Achievement Optimizer →
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ACHIEVEMENT OPTIMIZER -->
+
+<section
+    id="achievementScreen"
+    class="hidden"
+>
+
+    <div class="card">
+
+        <div class="step-label">
+            ACHIEVEMENT OPTIMIZER
+        </div>
+
+        <h2>
+            Strengthen your accomplishments
+        </h2>
+
+        <p class="help-text">
+            We found statements that could become more
+            persuasive with additional factual detail.
+            Add information only when you know it is
+            accurate.
+        </p>
+
+
+        <div
+            id="achievementSummary"
+            class="analysis-summary"
+        ></div>
+
+
+        <div id="achievementOpportunities"></div>
+
+
+        <div class="button-row">
+
+            <button
+                type="button"
+                class="secondary"
+                data-action="show-verification"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                type="button"
+                data-action="submit-achievement-answers"
+            >
+                Continue →
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FACTUAL INTEGRITY REVIEW -->
+
+<section
+    id="integrityScreen"
+    class="hidden"
+>
+
+    <div class="card">
+
+        <div class="step-label">
+            FACTUAL INTEGRITY REVIEW
+        </div>
+
+        <h2>
+            Application Accuracy Check
+        </h2>
+
+        <p class="help-text">
+            The generated resume and cover letter
+            were compared against your original resume
+            and verified experience.
+        </p>
+
+
+        <div class="integrity-score-area">
+
+            <div
+                id="integrityScoreBox"
+                class="integrity-score-box"
+            >
+
+                <span id="integrityScore">
+                    --
+                </span>
+
+                <small>
+                    Integrity Score
+                </small>
+
+            </div>
+
+
+            <div
+                id="integrityStatus"
+                class="integrity-status"
+            ></div>
+
+        </div>
+
+
+        <p
+            id="integritySummary"
+            class="analysis-summary"
+        ></p>
+
+
+        <div class="integrity-stats">
+
+            <div>
+
+                <strong id="supportedClaims">
+                    0
+                </strong>
+
+                <span>
+                    Supported
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <strong id="reframedClaims">
+                    0
+                </strong>
+
+                <span>
+                    Reasonable Reframes
+                </span>
+
+            </div>
+
+
+            <div class="warning-stat">
+
+                <strong id="unsupportedClaims">
+                    0
+                </strong>
+
+                <span>
+                    Unsupported
+                </span>
+
+            </div>
+
+
+            <div class="danger-stat">
+
+                <strong id="contradictions">
+                    0
+                </strong>
+
+                <span>
+                    Contradictions
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div id="integrityIssues"></div>
+
+
+        <div class="button-row">
+
+            <button
+                type="button"
+                class="secondary"
+                data-action="show-verification"
+            >
+                ← Back
+            </button>
+
+
+            <button
+                id="continueAfterIntegrity"
+                type="button"
+                data-action="continue-final-results"
+            >
+                Continue to Documents →
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FINAL RESULTS -->
+
+<section
+    id="results"
+    class="hidden"
+>
+
+<div class="card">
+
+    <div class="step-label">
+        FINAL ALIGNMENT
+    </div>
+
+    <h2>
+        Optimized Application
+    </h2>
+
+
+    <div class="scores">
+
+        <div class="score-box highlight">
+
+            <span id="finalMatch">
+                --
+            </span>
+
+            <small>
+                Final Qualification Match
+            </small>
+
+        </div>
+
+
+        <div class="score-box highlight">
+
+            <span id="finalATS">
+                --
+            </span>
+
+            <small>
+                Final ATS Coverage
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <h3>
+        ATS Keywords Added
+    </h3>
+
+    <div
+        id="keywordsAdded"
+        class="keywords"
+    ></div>
+
+
+    <div class="ats-audit-section">
+
+        <h3>
+            ATS Optimization Audit
+        </h3>
+
+        <p class="help-text">
+            Keywords are added only where your resume or
+            verified experience supports the claim.
+        </p>
+
+
+        <div class="ats-placement-grid">
+
+            <div class="ats-placement-card">
+
+                <strong>
+                    Headline
+                </strong>
+
+                
+        <div class="deterministic-ats-panel">
+
+            <div class="step-label">
+                VERIFIED ATS AUDIT
+            </div>
+
+            <div class="deterministic-ats-summary">
+
+                <div class="ats-score-circle">
+
+                    <strong id="deterministicATS">
+                        --
+                    </strong>
+
+                    <span>
+                        Actual Coverage
+                    </span>
+
+                </div>
+
+
+                <div class="ats-structure-status">
+
+                    <span class="requirement-label">
+                        Document Structure
+                    </span>
+
+                    <strong id="atsStructureStatus">
+                        --
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="ats-verified-group">
+
+                <div class="requirement-label">
+                    Authorized ATS Terms
+                </div>
+
+                <div
+                    id="authorizedKeywords"
+                    class="keywords"
+                ></div>
+
+            </div>
+
+
+            <div class="ats-verified-group">
+
+                <div class="requirement-label">
+                    Actually Found in Final Resume
+                </div>
+
+                <div
+                    id="actualKeywordsFound"
+                    class="keywords"
+                ></div>
+
+            </div>
+
+
+            <div class="ats-verified-group">
+
+                <div class="requirement-label">
+                    Supported but Missing from Final Resume
+                </div>
+
+                <div
+                    id="actualKeywordsMissing"
+                    class="keywords missing-keywords"
+                ></div>
+
+            </div>
+
+
+            <div
+                id="atsStructureIssuesContainer"
+                class="ats-structure-issues hidden"
+            >
+
+                <div class="requirement-label">
+                    Structure Issues
+                </div>
+
+                <ul id="atsStructureIssues"></ul>
+
+            </div>
+
+        </div>
+
+<div
+                    id="headlineKeywords"
+                    class="keywords compact-keywords"
+                ></div>
+
+            </div>
+
+
+            <div class="ats-placement-card">
+
+                <strong>
+                    Profile
+                </strong>
+
+                <div
+                    id="profileKeywords"
+                    class="keywords compact-keywords"
+                ></div>
+
+            </div>
+
+
+            <div class="ats-placement-card">
+
+                <strong>
+                    Skill Groups
+                </strong>
+
+                <div
+                    id="skillGroupKeywords"
+                    class="keywords compact-keywords"
+                ></div>
+
+            </div>
+
+
+            <div class="ats-placement-card">
+
+                <strong>
+                    Accomplishments
+                </strong>
+
+                <div
+                    id="accomplishmentKeywords"
+                    class="keywords compact-keywords"
+                ></div>
+
+            </div>
+
+        </div>
+
+
+        <details class="ats-keyword-details">
+
+            <summary>
+                View keyword evidence and placement details
+            </summary>
+
+            <div id="keywordPlacementDetails"></div>
+
+        </details>
+
+
+        <details class="ats-excluded-details">
+
+            <summary>
+                View excluded unsupported keywords
+            </summary>
+
+            <p class="help-text">
+                These terms were intentionally excluded to
+                prevent unsupported claims.
+            </p>
+
+            <div
+                id="excludedKeywords"
+                class="keywords compact-keywords"
+            ></div>
+
+        </details>
+
+    </div>
+
+
+    <div id="remainingGapSection">
+
+        <h3>
+            Remaining Gaps
+        </h3>
+
+        <ul id="remainingGaps"></ul>
+
+    </div>
+
+</div>
+
+
+<!-- RECRUITER / HIRING-MANAGER REVIEW -->
+
+<div
+    id="recruiterReviewCard"
+    class="card"
+>
+
+    <div class="step-label">
+        RECRUITER / HIRING-MANAGER SIMULATION
+    </div>
+
+    <h2>
+        How will this application be perceived?
+    </h2>
+
+    <p class="help-text">
+        Simulate a skeptical 30–60 second review of your
+        submitted resume and cover letter before you apply.
+        This review does not change your documents or scores.
+    </p>
+
+
+    <div id="recruiterReviewIntro">
+
+        <button
+            type="button"
+            data-action="run-recruiter-review"
+        >
+            Run Recruiter Review →
+        </button>
+
+    </div>
+
+
+    <div
+        id="recruiterReviewLoading"
+        class="hidden"
+    >
+
+        <p class="help-text">
+            Reviewing your application as a recruiter
+            or hiring manager...
+        </p>
+
+    </div>
+
+
+    <div
+        id="recruiterReviewResults"
+        class="hidden"
+    >
+
+        <div class="integrity-score-area">
+
+            <div class="integrity-score-box">
+
+                <span id="recruiterRecommendation">
+                    --
+                </span>
+
+                <small>
+                    Interview Recommendation
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <h3>
+            30–60 Second First Impression
+        </h3>
+
+        <p
+            id="recruiterFirstImpression"
+            class="analysis-summary"
+        ></p>
+
+
+        <h3>
+            Strongest Signals
+        </h3>
+
+        <ul id="recruiterStrongestSignals"></ul>
+
+
+        <h3>
+            Concerns, Red Flags & Clarifications
+        </h3>
+
+        <div id="recruiterConcerns"></div>
+
+
+        <h3>
+            What Is Unclear?
+        </h3>
+
+        <ul id="recruiterUnclearPoints"></ul>
+
+
+        <h3>
+            Missing Signals
+        </h3>
+
+        <ul id="recruiterMissingSignals"></ul>
+
+
+        <h3>
+            Buzzword / Over-Positioning Risk
+        </h3>
+
+        <ul id="recruiterBuzzwordRisks"></ul>
+
+
+        <h3>
+            Likely Interview Questions
+        </h3>
+
+        <div id="recruiterInterviewQuestions"></div>
+
+
+        <h3>
+            Recruiter's Bottom Line
+        </h3>
+
+        <p
+            id="recruiterBottomLine"
+            class="analysis-summary"
+        ></p>
+
+
+        <button
+            type="button"
+            class="secondary"
+            data-action="run-recruiter-review"
+        >
+            Run Review Again
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- INTERVIEW PREPARATION -->
+
+<div
+    id="interviewPreparationCard"
+    class="card"
+>
+
+    <div class="step-label">
+        INTERVIEW PREPARATION
+    </div>
+
+    <h2>
+        Prepare for the interview
+    </h2>
+
+    <p class="help-text">
+        Build likely interview questions, evidence-based
+        STAR stories, truthful responses for weak areas,
+        and questions to ask the employer.
+    </p>
+
+    <p class="help-text">
+        Preparation is based on your original resume and
+        verified experience. Missing details are identified
+        rather than invented.
+    </p>
+
+
+    <div id="interviewPreparationIntro">
+
+        <button
+            type="button"
+            data-action="run-interview-preparation"
+        >
+            Build Interview Preparation →
+        </button>
+
+    </div>
+
+
+    <div
+        id="interviewPreparationLoading"
+        class="hidden"
+    >
+
+        <p class="help-text">
+            Building your evidence-based interview
+            preparation package...
+        </p>
+
+    </div>
+
+
+    <div
+        id="interviewPreparationResults"
+        class="hidden"
+    >
+
+        <h3>
+            Preparation Summary
+        </h3>
+
+        <p
+            id="interviewPreparationSummary"
+            class="analysis-summary"
+        ></p>
+
+
+        <h3>
+            1. Likely Interview Questions
+        </h3>
+
+        <div id="interviewLikelyQuestions"></div>
+
+
+        <h3>
+            2. STAR Story Bank
+        </h3>
+
+        <p class="help-text">
+            READY stories have enough supporting evidence.
+            NEEDS DETAIL stories identify what you should
+            recall before using them. TRANSFERABLE stories
+            demonstrate related rather than direct
+            experience.
+        </p>
+
+        <div id="interviewSTARStories"></div>
+
+
+        <h3>
+            3. Weak Areas & Gap Preparation
+        </h3>
+
+        <p class="help-text">
+            These strategies help you answer gaps honestly
+            without claiming experience that your evidence
+            does not support.
+        </p>
+
+        <div id="interviewGapPreparation"></div>
+
+
+        <h3>
+            4. Questions to Ask the Employer
+        </h3>
+
+        <div id="interviewEmployerQuestions"></div>
+
+
+        <h3>
+            Final Preparation Advice
+        </h3>
+
+        <ul id="interviewFinalAdvice"></ul>
+
+
+        <button
+            type="button"
+            class="secondary"
+            data-action="run-interview-preparation"
+        >
+            Rebuild Interview Preparation
+        </button>
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <div class="step-label">
+        DOCUMENT 1
+    </div>
+
+    <h2>
+        Targeted Resume
+    </h2>
+
+    <p class="help-text">
+
+        The Word version uses the standardized
+        ATS-friendly Resume Project format.
+
+    </p>
+
+
+    <pre
+        id="resumePreview"
+        class="document-preview"
+    ></pre>
+
+
+    <button data-action="download-resume">
+
+        Download Resume (.docx)
+
+    </button>
+
+</div>
+
+
+<div class="card">
+
+    <div class="step-label">
+        DOCUMENT 2
+    </div>
+
+    <h2>
+        Cover Letter
+    </h2>
+
+
+    <pre
+        id="coverLetterPreview"
+        class="document-preview"
+    ></pre>
+
+
+    <button data-action="download-cover-letter">
+
+        Download Cover Letter (.docx)
+
+    </button>
+
+</div>
+
+
+<div class="center">
+
+    <button
+        class="secondary"
+        data-action="start-over"
+    >
+
+        Start New Application
+
+    </button>
+
+</div>
+
+</section>
+
+</main>
+
+<script src="/static/state.js"></script>
+<script src="/static/utils.js"></script>
+<script src="/static/requirements.js"></script>
+<script src="/static/ats-ui.js"></script>
+<script src="/static/gaps-ui.js"></script>
+<script src="/static/integrity-ui.js"></script>
+<script src="/static/achievements-ui.js"></script>
+<script src="/static/recruiter-ui.js"></script>
+<script src="/static/interview-ui.js"></script>
+<script src="/static/app.js"></script>
+<script src="/static/events.js"></script>
+
+</body>
+</html>
